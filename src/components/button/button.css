@@ -1,0 +1,57 @@
+.button {
+  cursor: pointer;
+  font-family: var(--default-font-family);
+  font-weight: 400;
+}
+
+.button:focus {
+  outline: 1px solid #000;
+}
+
+.button_appearance_plain {
+  display: inline;
+
+  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: #0796c5;
+
+  background-color: transparent;
+  border: 0;
+}
+
+.button_appearance_plain:active,
+.button_appearance_plain:hover {
+  text-decoration: underline;
+}
+
+.button_appearance_plain:focus {
+  border-radius: 10px;
+  outline: 1px solid #0796c5;
+}
+
+.button_appearance_submit {
+  position: relative;
+  z-index: 1;
+
+  height: 36px;
+  padding: 0 20px;
+
+  font-size: 16px;
+  line-height: 34px;
+  color: #000;
+
+  background-color: #d7f5ef;
+  border: 1px solid #000;
+  border-radius: 10px;
+
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.button_appearance_submit:hover {
+  box-shadow: -10px 5px 20px #2ac6fc;
+  transition: border-color 0.1s, box-shadow 0.1s;
+}

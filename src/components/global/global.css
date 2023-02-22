@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:root {
+  --default-background-color: #fdfdfd;
+  --default-font-family: Inconsolata, monospace;
+
+  font-family: var(--default-font-family);
+  font-size: 16px;
+  line-height: 1.4;
+  background-color: var(--default-background-color);
+}
