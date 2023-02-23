@@ -85,8 +85,8 @@
   box-shadow: none;
 }
 
-.auth-form__submit_shudder {
-  animation: shudder 0.5s;
+.auth-form__submit_wiggle {
+  animation: wiggle 0.5s;
 }
 
 @keyframes loom {
@@ -108,7 +108,7 @@
   }
 }
 
-@keyframes shudder {
+@keyframes wiggle {
   10% {
     transform: translateX(5px);
   }

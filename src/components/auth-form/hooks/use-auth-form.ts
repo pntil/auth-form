@@ -28,6 +28,7 @@ type UseAuthForm = (params: UseAuthFormTypeParams) => {
   handleEmailChange: ChangeEventHandler<HTMLInputElement>;
   handlePasswordChange: ChangeEventHandler<HTMLInputElement>;
   handleSubmit: FormEventHandler;
+  isSubmitted: boolean;
   errors: AuthFormErrors;
   setRootError(error: AuthFormError): void;
   emailInputRef: RefObject<HTMLInputElement>;
@@ -114,6 +115,7 @@ export const useAuthForm: UseAuthForm = ({ onSubmit }) => {
     handleEmailChange,
     handlePasswordChange,
     handleSubmit,
+    isSubmitted,
     errors,
     setRootError,
     emailInputRef,

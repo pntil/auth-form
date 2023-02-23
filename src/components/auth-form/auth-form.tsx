@@ -1,12 +1,14 @@
-import { FC, MouseEventHandler, useEffect, useState } from 'react';
+import { FC, MouseEventHandler, useEffect } from 'react';
 
 import { cn } from 'utils/cn';
 
-import { Button } from 'components/button/button';
-import { Input } from 'components/input/input';
+import { AuthFormData, AuthFormError } from './auth-form.types';
 
 import { useAuthForm } from './hooks/use-auth-form';
-import { AuthFormData, AuthFormError } from './auth-form.types';
+import { useTriggerErrorAnimation } from './hooks/use-trigger-error-animation';
+
+import { Button } from 'components/button/button';
+import { Input } from 'components/input/input';
 
 import './auth-form.css';
 
@@ -31,18 +33,15 @@ export const AuthForm: FC<AuthFormProps> = ({
     handleEmailChange,
     handlePasswordChange,
     handleSubmit,
+    isSubmitted,
     errors,
     setRootError,
     emailInputRef,
     passwordInputRef,
   } = useAuthForm({ onSubmit });
 
-  useEffect(() => {
-    setRootError(rootError);
-  }, [rootError, setRootError]);
-
-  const [isSubmitErrorAnimationTriggered, setIsSubmitErrorAnimationTriggered] =
-    useState(false);
+  const { isErrorAnimationTriggered, triggerErrorAnimation } =
+    useTriggerErrorAnimation();
 
   const hasEmailError = Boolean(errors.email);
   const hasPasswordError = Boolean(errors.password);
@@ -50,13 +49,27 @@ export const AuthForm: FC<AuthFormProps> = ({
   const hasError = hasEmailError || hasPasswordError || hasRootError;
 
   const handleSubmitClick: MouseEventHandler<HTMLButtonElement> = () => {
-    if (hasError && !isSubmitErrorAnimationTriggered) {
-      setIsSubmitErrorAnimationTriggered(true);
-      setTimeout(() => {
-        setIsSubmitErrorAnimationTriggered(false);
-      }, 500);
+    if (hasError) {
+      triggerErrorAnimation();
     }
   };
+
+  useEffect(() => {
+    setRootError(rootError);
+    if (rootError) {
+      triggerErrorAnimation();
+    }
+  }, [rootError, setRootError, triggerErrorAnimation]);
+
+  // A particular case of submitting for the first time with erroneous values,
+  // i.e. for once when isSubmitted goes from false to true...
+  useEffect(() => {
+    if (hasError) {
+      triggerErrorAnimation();
+    }
+    // ...therefore, we don't want hasError as a dependency here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSubmitted]);
 
   return (
     <form className={cnAuthForm({ error: hasError })} onSubmit={handleSubmit}>
@@ -132,7 +145,7 @@ export const AuthForm: FC<AuthFormProps> = ({
         {isLoading && <div className={cnAuthForm('loader')} />}
         <Button
           className={cnAuthForm('submit', {
-            shudder: isSubmitErrorAnimationTriggered,
+            wiggle: isErrorAnimationTriggered,
           })}
           type="submit"
           disabled={isLoading}
