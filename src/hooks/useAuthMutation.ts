@@ -6,7 +6,7 @@ type UseAuthMutation = <DataType, ErrorType>() => {
   mutate(data: DataType): void;
 };
 
-// This is a dummy react-quiry-ish 'mutation' hook that pretends for 1.5 seconds
+// It is a dummy react-query-ish 'mutation' hook that pretends for 1.5 seconds
 // to be sending the credentials data somewhere and then 'receives' an error.
 export const useAuthMutation: UseAuthMutation = <DataType, ErrorType>() => {
   const [isLoading, setIsLoading] = useState(false);
