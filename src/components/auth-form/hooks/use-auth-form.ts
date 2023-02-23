@@ -15,8 +15,8 @@ import type {
 } from '../auth-form.types';
 
 import {
-  checkEmailIsValid,
-  checkPasswordIsValid,
+  validateEmail,
+  validatePassword,
   checkFormIsValid,
 } from '../utils/validation';
 
@@ -53,7 +53,7 @@ export const useAuthForm: UseAuthForm = ({ onSubmit }) => {
       if (isSubmitted) {
         setErrors((errors) => ({
           ...errors,
-          email: checkEmailIsValid(value),
+          email: validateEmail(value),
           root: undefined,
         }));
       }
@@ -68,7 +68,7 @@ export const useAuthForm: UseAuthForm = ({ onSubmit }) => {
       if (isSubmitted) {
         setErrors((errors) => ({
           ...errors,
-          password: checkPasswordIsValid(value),
+          password: validatePassword(value),
           root: undefined,
         }));
       }
@@ -86,8 +86,8 @@ export const useAuthForm: UseAuthForm = ({ onSubmit }) => {
 
       const nextErrors = {
         ...errors,
-        email: checkEmailIsValid(email),
-        password: checkPasswordIsValid(password),
+        email: validateEmail(email),
+        password: validatePassword(password),
       };
 
       setErrors(nextErrors);

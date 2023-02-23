@@ -19,7 +19,7 @@ const validationRules: AuthFormValidationRules = {
   ],
 };
 
-const checkFieldIsValid = (value: string, rules: ValidationRule[]) => {
+const resolveField = (value: string, rules: ValidationRule[]) => {
   for (let i = 0; i < rules.length; i++) {
     const rule = rules[i];
 
@@ -29,11 +29,11 @@ const checkFieldIsValid = (value: string, rules: ValidationRule[]) => {
   }
 };
 
-export const checkEmailIsValid = (value: string) =>
-  checkFieldIsValid(value, validationRules.email);
+export const validateEmail = (value: string) =>
+  resolveField(value, validationRules.email);
 
-export const checkPasswordIsValid = (value: string) =>
-  checkFieldIsValid(value, validationRules.password);
+export const validatePassword = (value: string) =>
+  resolveField(value, validationRules.password);
 
 export const checkFormIsValid = (errors: AuthFormErrors) =>
   !Object.values(errors).some((error) => typeof error !== 'undefined');
