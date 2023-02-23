@@ -22,7 +22,7 @@
 .input__label {
   position: absolute;
   z-index: 1;
-  top: 3px;
+  top: 4px;
   left: 20px;
 
   font-size: 14px;
@@ -64,6 +64,10 @@
   font-family: var(--font-family) !important;
 }
 
+.input_error .input__input {
+  padding-right: 35px;
+}
+
 .input_focused .input__input {
   outline: none;
   box-shadow: 0 0 20px 10px #feeeba, 0 0 0 24px #fdf1c5 inset;
@@ -75,7 +79,7 @@
 
 .input__error-icon {
   position: absolute;
-  top: 4px;
+  top: 5px;
   right: 10px;
 
   font-size: 14px;
