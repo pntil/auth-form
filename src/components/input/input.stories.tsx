@@ -19,11 +19,7 @@ const Template: ComponentStory<typeof Input> = (args) => {
     setValue(value);
   };
 
-  return (
-    // <div style={{ width: 320, paddingTop:paddingLeft: 40 }}>
-    <Input {...args} value={value} onChange={handleChange} />
-    // </div>
-  );
+  return <Input {...args} value={value} onChange={handleChange} />;
 };
 
 export const Default = Template.bind({});

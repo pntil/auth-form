@@ -2,7 +2,7 @@
   max-width: 480px;
   padding-bottom: 20px;
 
-  font-family: Inconsolata, monospace;
+  font-family: var(--default-font-family);
   font-size: 11px;
   line-height: 14px;
   color: #aaa;

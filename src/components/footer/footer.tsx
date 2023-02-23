@@ -16,7 +16,7 @@ export const Footer: FC = () => {
         Anton Belyaev
       </a>{' '}
       either might or might not be involved in this webpage creation. Yes, I
-      meant 'wlecome' there. After reading the terminal sentence you will not
+      meant 'wlecome' there. After reading the terminal sentence, you will not
       remember&nbsp;the&nbsp;question.
     </div>
   );
