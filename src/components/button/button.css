@@ -29,8 +29,9 @@
 }
 
 .button_appearance_plain:focus {
-  border-radius: 10px;
+  border-radius: 4px;
   outline: 1px solid #0796c5;
+  outline-offset: 2px;
 }
 
 .button_appearance_submit {

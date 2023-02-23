@@ -107,6 +107,7 @@ export const AuthForm: FC<AuthFormProps> = ({
         />
         <div className={cnAuthForm('field-underside')}>
           <Button
+            className={cnAuthForm('forgot-password')}
             type="button"
             appearance="plain"
             label="Forgot password?"

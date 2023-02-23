@@ -17,3 +17,11 @@
 .footer__link:hover {
   text-decoration: underline;
 }
+
+.footer__link:focus,
+.footer__link:focus-visible {
+  border-radius: 2px;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-offset: 2px;
+}

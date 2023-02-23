@@ -39,6 +39,12 @@
   line-height: 28px;
 }
 
+.auth-form__forgot-password {
+  align-self: center;
+  height: 16px;
+  line-height: 16px;
+}
+
 .auth-form__root-error {
   text-align: right;
   animation: loom 0.4s;
