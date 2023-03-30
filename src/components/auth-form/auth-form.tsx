@@ -72,7 +72,11 @@ export const AuthForm: FC<AuthFormProps> = ({
   }, [isSubmitted]);
 
   return (
-    <form className={cnAuthForm({ error: hasError })} onSubmit={handleSubmit}>
+    <form
+      className={cnAuthForm({ error: hasError })}
+      noValidate
+      onSubmit={handleSubmit}
+    >
       <h1 className={cnAuthForm('heading')}>Wlecome back</h1>
 
       <label
@@ -84,7 +88,7 @@ export const AuthForm: FC<AuthFormProps> = ({
           name="email"
           id="auth-form:email"
           placeholder="Email"
-          type="text"
+          type="email"
           value={email}
           tabIndex={10}
           autoComplete="email"

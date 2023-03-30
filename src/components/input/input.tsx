@@ -5,7 +5,7 @@ import { cn } from 'utils/cn';
 import './input.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  type: 'password' | 'text';
+  type: 'password' | 'email' | 'text';
   hasError?: boolean;
   inputRef?: RefObject<HTMLInputElement>;
 }
